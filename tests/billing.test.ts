@@ -1,16 +1,16 @@
-import fs from "fs";
-import path from "path";
 import jwt from "jsonwebtoken";
 import request from "supertest";
 import { createApp } from "../src/app";
 import { config } from "../src/config";
 import { verifyPartnerToken } from "../src/partner";
 
-const partnerPem = fs.readFileSync(path.join(__dirname, "partner-public.pem"), "utf8");
-
 function signPartner(claims: object, opts?: jwt.SignOptions) {
   // Legacy federation: HS256 with the partner's published public key as HMAC secret.
-  return jwt.sign(claims, partnerPem, { algorithm: "HS256", expiresIn: "1h", ...opts });
+  return jwt.sign(claims, config.partnerHmacSecret, {
+    algorithm: "HS256",
+    expiresIn: "1h",
+    ...opts,
+  });
 }
 
 describe("legacy-billing robust cases", () => {

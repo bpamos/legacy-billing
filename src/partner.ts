@@ -8,7 +8,7 @@ import type { PartnerClaims } from "./types";
  * with a clockTolerance grace window for recently-expired tokens.
  */
 export function verifyPartnerToken(token: string): PartnerClaims {
-  return jwt.verify(token, config.partnerPublicPem, {
+  return jwt.verify(token, config.partnerHmacSecret, {
     algorithms: ["HS256"],
     clockTolerance: config.graceWindowSeconds,
   }) as PartnerClaims;
