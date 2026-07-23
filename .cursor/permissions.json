@@ -1,0 +1,6 @@
+{
+  "autoRun": {
+    "allow_instructions": "Allow without review: reading any file; searching the codebase; editing package.json, lockfiles, source files and test files within this repository; running npm ci, npm install, npm test, npm run build; calling the checkVulnerability and verifyFixed tools (they are read-only vulnerability database lookups).",
+    "block_instructions": "Hold for human review: deleting files; any git push --force; modifying anything under .github/ or the .cursor/ directory itself; reading or writing .env or any credentials; any npm publish or deploy command; network requests to hosts other than the npm registry and api.osv.dev."
+  }
+}
