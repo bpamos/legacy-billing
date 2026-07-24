@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "hooks": {
+    "preToolUse": [
+      {
+        "command": ".cursor/hooks/audit.sh"
+      }
+    ],
+    "postToolUse": [
+      {
+        "command": ".cursor/hooks/audit.sh"
+      }
+    ],
+    "beforeShellExecution": [
+      {
+        "command": ".cursor/hooks/audit.sh"
+      },
+      {
+        "command": ".cursor/hooks/guard.sh",
+        "failClosed": true
+      }
+    ],
+    "beforeReadFile": [
+      {
+        "command": ".cursor/hooks/guard.sh",
+        "failClosed": true
+      }
+    ]
+  }
+}

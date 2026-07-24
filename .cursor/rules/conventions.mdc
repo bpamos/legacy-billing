@@ -1,0 +1,9 @@
+---
+description: Demo fixture service conventions
+globs:
+alwaysApply: true
+---
+- Use conventional commits; scope = package or area name.
+- Keep TypeScript `strict` enabled; do not loosen compiler options to silence errors.
+- Do not add new dependencies without a one-line justification in the PR body.
+- Do not modify CI workflows under `.github/`.
